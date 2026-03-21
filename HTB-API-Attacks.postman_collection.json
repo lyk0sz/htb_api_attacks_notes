@@ -1,0 +1,259 @@
+{
+	"info": {
+		"_postman_id": "d3ba463d-7787-4185-bb10-5d535a488953",
+		"name": "HTB API Attacks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Broken Auth Example | customer",
+			"item": [
+				{
+					"name": "1. login as customer",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "2. view current user info | customer",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "3. view roles of current user | customer",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "4. GetAll customers",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "5. update password to weak 4-char",
+					"request": {
+						"method": "PATCH",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "6. update password to weak 6-char",
+					"request": {
+						"method": "PATCH",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "7. login w/ new pass | bruteforce w/ Proxy",
+					"request": {
+						"method": "PATCH",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "swagger",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/swagger",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"swagger"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "suppliers | login/jwt",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Parse the JSON response",
+							"const responseData = pm.response.json();",
+							"",
+							"// Set the collection variable",
+							"if (responseData.jwt) {",
+							"    pm.collectionVariables.set(\"supplier_fresh_jwt\", responseData.jwt);",
+							"    console.log(\"JWT has been updated in collection variables.\");",
+							"} else {",
+							"    console.error(\"JWT not found in the response body!\");",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true,
+					"user-agent": true,
+					"host": true,
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Referer",
+						"value": "http://154.57.164.71:31162/swagger/index.html",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"Email\": \"htbpentester2@pentestercompany.com\",\n  \"Password\": \"HTBPentester2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/authentication/suppliers/sign-in",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"authentication",
+						"suppliers",
+						"sign-in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "suppliers | quarterly report",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjJAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiU3VwcGxpZXJDb21wYW5pZXNfR2V0WWVhcmx5UmVwb3J0QnlJRCIsIlN1cHBsaWVyc19HZXRRdWFydGVybHlSZXBvcnRCeUlEIl0sImV4cCI6MTc3NDEwMzQ3NiwiaXNzIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiIsImF1ZCI6Imh0dHA6Ly9hcGkuaW5sYW5lZnJlaWdodC5odGIifQ.QNB7pHwAUE8tBGuyUqElkvrrU-wDVhRTI3QpzcPs49tw53hYZVa8dCwB7Ix4BWRaSaBWkJeFaK7y8my1KEwUtw"
+					}
+				],
+				"url": {
+					"raw": "http://154.57.164.81:30855/api/v1/suppliers/quarterly-reports/1",
+					"protocol": "http",
+					"host": [
+						"154",
+						"57",
+						"164",
+						"81"
+					],
+					"port": "30855",
+					"path": [
+						"api",
+						"v1",
+						"suppliers",
+						"quarterly-reports",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customers | login/jwt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"Email\": \"htbpentester3@pentestercompany.com\",\n  \"Password\": \"HTBPentester3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/authentication/customers/sign-in",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"authentication",
+						"customers",
+						"sign-in"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://154.57.164.83:30954",
+			"type": "default"
+		},
+		{
+			"key": "supplier_fresh_jwt",
+			"value": ""
+		}
+	]
+}
