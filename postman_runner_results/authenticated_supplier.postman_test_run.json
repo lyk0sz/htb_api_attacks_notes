@@ -1,0 +1,1206 @@
+{
+	"id": "89d22a16-dfd2-4b20-83b0-f3c0e866e141",
+	"name": "Inlanefreight E-Commerce Marketplace",
+	"timestamp": "2026-03-21T07:34:20.530Z",
+	"collection_id": "0-f806e4c2-d2e6-4417-b1b0-7e1d5d2e20eb",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "9813ea42-513c-46c2-afd4-753a6bb9b09f",
+			"name": "Gets all Supplier Companies Yearly Reports",
+			"url": "http://154.57.164.83:30467/api/v1/supplier-companies/yearly-reports",
+			"time": 623,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				623
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "26c78b7f-a362-4828-aa95-639a87bb5a21",
+			"name": "Gets a Supplier Company Yearly Report",
+			"url": "http://154.57.164.83:30467/api/v1/supplier-companies/yearly-reports/19665129",
+			"time": 321,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				321
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6b2d4665-7380-4e7d-89a9-76148b77cc15",
+			"name": "Gets a Supplier Company",
+			"url": "http://154.57.164.83:30467/api/v1/supplier-companies/adipisicing%20irure%20quis%20proident",
+			"time": 310,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				310
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "8d66e557-e26d-41cd-8438-6b95d87bd98e",
+			"name": "Gets a Supplier's Company Certificate of Incorporation as Base64-encoded data",
+			"url": "http://154.57.164.83:30467/api/v1/supplier-companies/adipisicing%20irure%20quis%20proident/certificates-of-incorporation",
+			"time": 319,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				319
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "1c5683fd-ab4f-40f4-8de9-2018b1dbf030",
+			"name": "Updates a Supplier Company",
+			"url": "http://154.57.164.83:30467/api/v1/supplier-companies",
+			"time": 320,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				320
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e531b477-d423-41a2-9514-aaa153386882",
+			"name": "Gets all Supplier Companies",
+			"url": "http://154.57.164.83:30467/api/v1/supplier-companies",
+			"time": 317,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				317
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f77ad1c7-3c87-4cb9-a9a0-e382bad63a95",
+			"name": "Creates a new Supplier Company",
+			"url": "http://154.57.164.83:30467/api/v1/supplier-companies",
+			"time": 322,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				322
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "98ef0068-1c7d-4e46-9564-7ab0171449d9",
+			"name": "Gets the Supplier Company of the currently authenticated Supplier",
+			"url": "http://154.57.164.83:30467/api/v1/supplier-companies/current-user",
+			"time": 317,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				317
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4c0c7f81-2988-4468-949e-f4a8d5101cfb",
+			"name": "Uploads a Supplier's Company Certificate of Incorporation",
+			"url": "http://154.57.164.83:30467/api/v1/supplier-companies/certificates-of-incorporation",
+			"time": 314,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				314
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b0cf798b-1e9a-4689-8787-d4561ada1785",
+			"name": "Gets all Supplier Quarterly Reports",
+			"url": "http://154.57.164.83:30467/api/v1/suppliers/quarterly-reports",
+			"time": 322,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				322
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "27306e18-f1e4-4203-aa24-c15ff4f70df9",
+			"name": "Gets a Supplier Quarterly Report by ID",
+			"url": "http://154.57.164.83:30467/api/v1/suppliers/quarterly-reports/19665129",
+			"time": 317,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				317
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ca987c76-26bf-4f95-a891-89031ba840fa",
+			"name": "Gets all Suppliers",
+			"url": "http://154.57.164.83:30467/api/v1/suppliers",
+			"time": 321,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				321
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "edef129c-7daa-40b7-8173-4026c95fd31f",
+			"name": "Gets the number of Suppliers by name",
+			"url": "http://154.57.164.83:30467/api/v1/suppliers/adipisicing%20irure%20quis%20proident/count",
+			"time": 318,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				318
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ebd3042a-64ef-4b72-8724-29fda0c4de0b",
+			"name": "Gets a Supplier",
+			"url": "http://154.57.164.83:30467/api/v1/suppliers/current-user",
+			"time": 317,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				317
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b5145e31-6a15-4f80-90c2-04f50810ae94",
+			"name": "Gets a Supplier",
+			"url": "http://154.57.164.83:30467/api/v1/suppliers/adipisicing%20irure%20quis%20proident",
+			"time": 316,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				316
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4c51caee-3664-4159-ad4c-447b444296cf",
+			"name": "Updates a Product using the Supplier ID of the currently authenticated Supplier",
+			"url": "http://154.57.164.83:30467/api/v1/products/current-user",
+			"time": 320,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				320
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "95f6e8ab-64ec-46a5-a2d1-686b5b6c46b4",
+			"name": "Creates a new Product using the Supplier ID of the currently authenticated Supplier",
+			"url": "http://154.57.164.83:30467/api/v1/products/current-user",
+			"time": 345,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				345
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "919d750e-8361-41b4-92c8-db9e7e6285d3",
+			"name": "Gets a Product",
+			"url": "http://154.57.164.83:30467/api/v1/products/adipisicing%20irure%20quis%20proident",
+			"time": 321,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				321
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f957051b-6561-401b-92d1-00a8d0669ba3",
+			"name": "Gets a Product's Photo as Base64",
+			"url": "http://154.57.164.83:30467/api/v1/products/adipisicing%20irure%20quis%20proident/photo",
+			"time": 315,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				315
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9763cf54-46eb-4417-a471-1e5566945ea0",
+			"name": "Updates a Product",
+			"url": "http://154.57.164.83:30467/api/v1/products",
+			"time": 315,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				315
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "853a84a7-f32e-4cb7-bafe-a15b4da2413f",
+			"name": "Gets all Products. By default, only Customers are allowed to use this endpoint. Suppliers should use instead /api/v1/products/current-supplier-company",
+			"url": "http://154.57.164.83:30467/api/v1/products",
+			"time": 320,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				320
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c629a4a8-7aaf-4d5a-be75-7612af2067be",
+			"name": "Creates a new Product",
+			"url": "http://154.57.164.83:30467/api/v1/products",
+			"time": 298,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				298
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "95190b3d-5a3b-4bed-9da6-b157b4af3643",
+			"name": "Gets a the total count of Products having a substring in their name",
+			"url": "http://154.57.164.83:30467/api/v1/products/adipisicing%20irure%20quis%20proident/count",
+			"time": 312,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				312
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "5bfd16ba-56fb-4411-bfcd-7211c24f7f76",
+			"name": "Uploads a Product's Photo",
+			"url": "http://154.57.164.83:30467/api/v1/products/photo",
+			"time": 322,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				322
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4aaba337-64da-4bd4-8c5c-d3a40792f3c4",
+			"name": "Gets all Products belonging to the Company of the currently authenticated Supplier. Customers should use instead /api/v1/products",
+			"url": "http://154.57.164.83:30467/api/v1/products/current-supplier-company",
+			"time": 319,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				319
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "03c8d335-0d24-4295-96ee-54ccb6c33065",
+			"name": "Gets all Product Discounts",
+			"url": "http://154.57.164.83:30467/api/v1/products/discounts",
+			"time": 296,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				296
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7d052f5d-9a24-4204-8237-6c1daf57e495",
+			"name": "Gets the Discounts of a Product",
+			"url": "http://154.57.164.83:30467/api/v1/products/adipisicing%20irure%20quis%20proident/discounts",
+			"time": 316,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				316
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "cf1bc0e1-1092-4c4d-881a-161e46cd5bb3",
+			"name": "Updates the currently authenticated Customer",
+			"url": "http://154.57.164.83:30467/api/v1/customers/current-user",
+			"time": 316,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				316
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4521cd51-460d-450a-b0eb-209170f443a7",
+			"name": "Gets the Customer data of the currently authenticated Customer",
+			"url": "http://154.57.164.83:30467/api/v1/customers/current-user",
+			"time": 295,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				295
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d7050aed-d01c-4278-bba7-b90a4c0bc30b",
+			"name": "Gets all Customer Payment Options",
+			"url": "http://154.57.164.83:30467/api/v1/customers/payment-options",
+			"time": 307,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				307
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "789926d6-73ac-4b1d-8a0c-e3f82b97a583",
+			"name": "Creates a Customer Payment Option",
+			"url": "http://154.57.164.83:30467/api/v1/customers/payment-options",
+			"time": 297,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				297
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "987e09af-020a-4669-ad51-cf21b87067e1",
+			"name": "Gets all Customer Payment Options of the currently authenticated Customer",
+			"url": "http://154.57.164.83:30467/api/v1/customers/payment-options/current-user",
+			"time": 299,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				299
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c426faf5-69c1-4556-aac1-5a751c025302",
+			"name": "Gets all Customer Payment Options by Customer ID",
+			"url": "http://154.57.164.83:30467/api/v1/customers/adipisicing%20irure%20quis%20proident/payment-options",
+			"time": 301,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				301
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7aa4cbd1-af29-42f0-8c1b-7ad051ea9bca",
+			"name": "Gets all Customer Orders by Customer ID",
+			"url": "http://154.57.164.83:30467/api/v1/customers/adipisicing%20irure%20quis%20proident/orders",
+			"time": 297,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				297
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "bb967fb3-0cad-4f90-93e2-2843bc6bc672",
+			"name": "Gets all Customer Billing Addresses by Customer ID and City",
+			"url": "http://154.57.164.83:30467/api/v1/customers/adipisicing%20irure%20quis%20proident/adipisicing%20irure%20quis%20proident/billing-addresses",
+			"time": 296,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				296
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "90694f57-4a88-45cf-b990-a9485f54a8e7",
+			"name": "Gets all Customer Billing Addresses by Customer ID",
+			"url": "http://154.57.164.83:30467/api/v1/customers/adipisicing%20irure%20quis%20proident/billing-addresses",
+			"time": 293,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				293
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "cffb8d2b-0f65-4786-bc93-69aba6f18056",
+			"name": "Gets a Customer Order",
+			"url": "http://154.57.164.83:30467/api/v1/customers/orders/adipisicing%20irure%20quis%20proident",
+			"time": 307,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				307
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "617f8141-ea3b-4fef-9678-3296e0a4342e",
+			"name": "Gets all Items of a Customer Order",
+			"url": "http://154.57.164.83:30467/api/v1/customers/orders/adipisicing%20irure%20quis%20proident/items",
+			"time": 312,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				312
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "eaa56b4e-53c5-485e-825e-b827446ad5f3",
+			"name": "Gets all Customer Orders",
+			"url": "http://154.57.164.83:30467/api/v1/customers/orders",
+			"time": 311,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				311
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "97bccce6-0cc6-4d16-89e1-adadd29228d8",
+			"name": "Creates a new Customer Order using the ID of the currently authenticated Customer",
+			"url": "http://154.57.164.83:30467/api/v1/customers/orders",
+			"time": 319,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				319
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a31e4473-ae37-4f4c-b5e3-ca5ccc3d8069",
+			"name": "Gets all Customer Orders of the currently authenticated Customer",
+			"url": "http://154.57.164.83:30467/api/v1/customers/orders/current-user",
+			"time": 318,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				318
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "1379806c-d82e-4af5-94ba-4ea0c7039588",
+			"name": "Adds new Item(s) in a Customer Order",
+			"url": "http://154.57.164.83:30467/api/v1/customers/orders/items",
+			"time": 316,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				316
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "92bce7f9-e548-4ef9-b204-6206668b5c60",
+			"name": "Gets all Customers Billing Addresses",
+			"url": "http://154.57.164.83:30467/api/v1/customers/billing-addresses",
+			"time": 319,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				319
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9534e6d4-aca8-4665-b1a3-1558f7609137",
+			"name": "Creates a new Customer Billing Address",
+			"url": "http://154.57.164.83:30467/api/v1/customers/billing-addresses",
+			"time": 318,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				318
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "1f8d43d4-fb45-4392-acbb-bf7231378aaf",
+			"name": "Gets all Customer Billing Addresses of the currently authenticated Customer",
+			"url": "http://154.57.164.83:30467/api/v1/customers/billing-addresses/current-user",
+			"time": 318,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				318
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e54bb1b3-5d59-41b4-8cc1-b89fc3d2a103",
+			"name": "Gets all Customers",
+			"url": "http://154.57.164.83:30467/api/v1/customers",
+			"time": 312,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				312
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "63dfedb3-5f8f-4ed1-8fc4-d388797003df",
+			"name": "Creates a new Customer",
+			"url": "http://154.57.164.83:30467/api/v1/customers",
+			"time": 314,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				314
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "df0d3169-13bc-4c0a-9166-9e8cf571af1f",
+			"name": "Gets a Customer",
+			"url": "http://154.57.164.83:30467/api/v1/customers/adipisicing%20irure%20quis%20proident",
+			"time": 316,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				316
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "38ed1fda-3585-4ff4-833b-5542b0062e78",
+			"name": "Confirms Resetting a Customer's password",
+			"url": "http://154.57.164.83:30467/api/v1/authentication/customers/passwords/resets",
+			"time": 319,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				319
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "dd1f5375-6fdc-4dea-b423-d5fd9731c2ed",
+			"name": "Sends a password-reset OTP to a Customer's email",
+			"url": "http://154.57.164.83:30467/api/v1/authentication/customers/passwords/resets/email-otps",
+			"time": 585,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				585
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7f321496-d9a3-4965-975a-ceb459c87b89",
+			"name": "Sends a password-reset OTP to a Customer's phone number",
+			"url": "http://154.57.164.83:30467/api/v1/authentication/customers/passwords/resets/sms-otps",
+			"time": 617,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				617
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d198d242-9cb5-4fe2-9871-e2058af1723c",
+			"name": "Signs in a Customer and returns a JWT",
+			"url": "http://154.57.164.83:30467/api/v1/authentication/customers/sign-in",
+			"time": 564,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				564
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9860f32a-6588-4b62-90d3-b935243a0c55",
+			"name": "Signs in a Supplier and returns a JWT",
+			"url": "http://154.57.164.83:30467/api/v1/authentication/suppliers/sign-in",
+			"time": 610,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				610
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "82f8e162-180a-40e7-857c-6e4454c72513",
+			"name": "Get the roles of the currently authenticated user",
+			"url": "http://154.57.164.83:30467/api/v1/roles/current-user",
+			"time": 557,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				557
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 18606,
+	"collection": {
+		"requests": [
+			{
+				"id": "9813ea42-513c-46c2-afd4-753a6bb9b09f",
+				"method": "GET"
+			},
+			{
+				"id": "26c78b7f-a362-4828-aa95-639a87bb5a21",
+				"method": "GET"
+			},
+			{
+				"id": "6b2d4665-7380-4e7d-89a9-76148b77cc15",
+				"method": "GET"
+			},
+			{
+				"id": "8d66e557-e26d-41cd-8438-6b95d87bd98e",
+				"method": "GET"
+			},
+			{
+				"id": "1c5683fd-ab4f-40f4-8de9-2018b1dbf030",
+				"method": "PATCH"
+			},
+			{
+				"id": "e531b477-d423-41a2-9514-aaa153386882",
+				"method": "GET"
+			},
+			{
+				"id": "f77ad1c7-3c87-4cb9-a9a0-e382bad63a95",
+				"method": "POST"
+			},
+			{
+				"id": "98ef0068-1c7d-4e46-9564-7ab0171449d9",
+				"method": "GET"
+			},
+			{
+				"id": "4c0c7f81-2988-4468-949e-f4a8d5101cfb",
+				"method": "POST"
+			},
+			{
+				"id": "b0cf798b-1e9a-4689-8787-d4561ada1785",
+				"method": "GET"
+			},
+			{
+				"id": "27306e18-f1e4-4203-aa24-c15ff4f70df9",
+				"method": "GET"
+			},
+			{
+				"id": "ca987c76-26bf-4f95-a891-89031ba840fa",
+				"method": "GET"
+			},
+			{
+				"id": "edef129c-7daa-40b7-8173-4026c95fd31f",
+				"method": "GET"
+			},
+			{
+				"id": "ebd3042a-64ef-4b72-8724-29fda0c4de0b",
+				"method": "GET"
+			},
+			{
+				"id": "b5145e31-6a15-4f80-90c2-04f50810ae94",
+				"method": "GET"
+			},
+			{
+				"id": "4c51caee-3664-4159-ad4c-447b444296cf",
+				"method": "PATCH"
+			},
+			{
+				"id": "95f6e8ab-64ec-46a5-a2d1-686b5b6c46b4",
+				"method": "POST"
+			},
+			{
+				"id": "919d750e-8361-41b4-92c8-db9e7e6285d3",
+				"method": "GET"
+			},
+			{
+				"id": "f957051b-6561-401b-92d1-00a8d0669ba3",
+				"method": "GET"
+			},
+			{
+				"id": "9763cf54-46eb-4417-a471-1e5566945ea0",
+				"method": "PATCH"
+			},
+			{
+				"id": "853a84a7-f32e-4cb7-bafe-a15b4da2413f",
+				"method": "GET"
+			},
+			{
+				"id": "c629a4a8-7aaf-4d5a-be75-7612af2067be",
+				"method": "POST"
+			},
+			{
+				"id": "95190b3d-5a3b-4bed-9da6-b157b4af3643",
+				"method": "GET"
+			},
+			{
+				"id": "5bfd16ba-56fb-4411-bfcd-7211c24f7f76",
+				"method": "POST"
+			},
+			{
+				"id": "4aaba337-64da-4bd4-8c5c-d3a40792f3c4",
+				"method": "GET"
+			},
+			{
+				"id": "03c8d335-0d24-4295-96ee-54ccb6c33065",
+				"method": "GET"
+			},
+			{
+				"id": "7d052f5d-9a24-4204-8237-6c1daf57e495",
+				"method": "GET"
+			},
+			{
+				"id": "cf1bc0e1-1092-4c4d-881a-161e46cd5bb3",
+				"method": "PATCH"
+			},
+			{
+				"id": "4521cd51-460d-450a-b0eb-209170f443a7",
+				"method": "GET"
+			},
+			{
+				"id": "d7050aed-d01c-4278-bba7-b90a4c0bc30b",
+				"method": "GET"
+			},
+			{
+				"id": "789926d6-73ac-4b1d-8a0c-e3f82b97a583",
+				"method": "POST"
+			},
+			{
+				"id": "987e09af-020a-4669-ad51-cf21b87067e1",
+				"method": "GET"
+			},
+			{
+				"id": "c426faf5-69c1-4556-aac1-5a751c025302",
+				"method": "GET"
+			},
+			{
+				"id": "7aa4cbd1-af29-42f0-8c1b-7ad051ea9bca",
+				"method": "GET"
+			},
+			{
+				"id": "bb967fb3-0cad-4f90-93e2-2843bc6bc672",
+				"method": "GET"
+			},
+			{
+				"id": "90694f57-4a88-45cf-b990-a9485f54a8e7",
+				"method": "GET"
+			},
+			{
+				"id": "cffb8d2b-0f65-4786-bc93-69aba6f18056",
+				"method": "GET"
+			},
+			{
+				"id": "617f8141-ea3b-4fef-9678-3296e0a4342e",
+				"method": "GET"
+			},
+			{
+				"id": "eaa56b4e-53c5-485e-825e-b827446ad5f3",
+				"method": "GET"
+			},
+			{
+				"id": "97bccce6-0cc6-4d16-89e1-adadd29228d8",
+				"method": "POST"
+			},
+			{
+				"id": "a31e4473-ae37-4f4c-b5e3-ca5ccc3d8069",
+				"method": "GET"
+			},
+			{
+				"id": "1379806c-d82e-4af5-94ba-4ea0c7039588",
+				"method": "POST"
+			},
+			{
+				"id": "92bce7f9-e548-4ef9-b204-6206668b5c60",
+				"method": "GET"
+			},
+			{
+				"id": "9534e6d4-aca8-4665-b1a3-1558f7609137",
+				"method": "POST"
+			},
+			{
+				"id": "1f8d43d4-fb45-4392-acbb-bf7231378aaf",
+				"method": "GET"
+			},
+			{
+				"id": "e54bb1b3-5d59-41b4-8cc1-b89fc3d2a103",
+				"method": "GET"
+			},
+			{
+				"id": "63dfedb3-5f8f-4ed1-8fc4-d388797003df",
+				"method": "POST"
+			},
+			{
+				"id": "df0d3169-13bc-4c0a-9166-9e8cf571af1f",
+				"method": "GET"
+			},
+			{
+				"id": "38ed1fda-3585-4ff4-833b-5542b0062e78",
+				"method": "POST"
+			},
+			{
+				"id": "dd1f5375-6fdc-4dea-b423-d5fd9731c2ed",
+				"method": "POST"
+			},
+			{
+				"id": "7f321496-d9a3-4965-975a-ceb459c87b89",
+				"method": "POST"
+			},
+			{
+				"id": "d198d242-9cb5-4fe2-9871-e2058af1723c",
+				"method": "POST"
+			},
+			{
+				"id": "9860f32a-6588-4b62-90d3-b935243a0c55",
+				"method": "POST"
+			},
+			{
+				"id": "82f8e162-180a-40e7-857c-6e4454c72513",
+				"method": "GET"
+			}
+		]
+	}
+}
